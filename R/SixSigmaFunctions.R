@@ -7,7 +7,7 @@ testPlot <- function(){
 
 
 
-DemoHist4 <- function(xTag = "Moisture", cTag = "APCOn"){
+DemoHist <- function(xTag = "Moisture", cTag = "APCOn"){
         
         require(ggplot2)
         require(plyr)
@@ -39,7 +39,7 @@ DemoHist4 <- function(xTag = "Moisture", cTag = "APCOn"){
         p
 }
 
-DemoQcc4 <- function(yTag = "Moisture",xTag = "Date", cTag = "APCOn"){
+DemoQcc <- function(yTag = "Moisture",xTag = "Date", cTag = "APCOn"){
         require(qcc)
         data <- getData2()
         data <- data[data$Spec == "WMP",]
@@ -60,7 +60,7 @@ DemoQcc4 <- function(yTag = "Moisture",xTag = "Date", cTag = "APCOn"){
         
 }
 
-DemoScat4 <- function(yTag = "Moisture",xTag = "Date", cTag = "APCOn"){
+DemoScat <- function(yTag = "Moisture",xTag = "Date", cTag = "APCOn"){
         data <- getData2()
         data$xTag = data[,xTag]
         data$yTag = data[,yTag]
