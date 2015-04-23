@@ -1,6 +1,6 @@
-\name{SSFunctions-package}
-\alias{SSFunctions-package}
-\alias{SSFunctions}
+\name{SixSigmaFunctions-package}
+\alias{SixSigmaFunctions-package}
+\alias{SixSigmaFunctions}
 \docType{package}
 \title{
 What the package does (short line)
@@ -12,7 +12,7 @@ More about what it does (maybe more than one line)
 }
 \details{
 \tabular{ll}{
-Package: \tab SSFunctions\cr
+Package: \tab SixSigmaFunctions\cr
 Type: \tab Package\cr
 Version: \tab 1.0\cr
 Date: \tab 2015-04-23\cr
