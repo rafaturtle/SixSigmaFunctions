@@ -340,3 +340,72 @@ rChart <- function(){
         rPlot(SepalLength ~ SepalWidth | Species, data = iris, color = 'Species', type = 'point')
         
 }
+
+
+runPlot <- function(){
+        require(SixSigma)
+        data <- getData2()
+        data <- data[data$Spec=="WMP",]
+        
+        m = mean(data$Moisture[1:20])
+        sd = sd(data$Moisture[1:20])
+        data$Moisture[1] = m
+        data$Colour="black"
+        # Set new column values to appropriate colours
+        data$Colour[data$Moisture>=m+sd]="red"
+        data$Colour[data$Moisture<=m-sd]="red"
+        
+        # Plot all points at once, using newly generated colours
+        
+        
+        
+        plot(data$Moisture[1:20],
+             type = "b",
+             pch = 16,     
+             axes = FALSE,
+             col=data$Colour,
+             main = "Run Chart for Moisture",
+             sub = "Moisture",
+             xlab = "Hour",
+             ylab = "Moisture")
+        
+        axis(1,at = 1:24, cex.axis = 0.7)
+        axis(2)
+        box()
+        grid()
+        
+        abline(h=m,lwd=1)
+        abline(h=sd+m,lwd=0.4)
+        abline(h=m-sd,lwd=0.4)
+        
+        
+        
+        
+}
+
+strip.plot <- function(){
+        require(SixSigma)
+        
+        stripchart(pc.volume ~ pc.batch,
+                   data = ss.data.pc,
+                   pch = "-",
+                   cex = 3,
+                   xlab = "Hour",
+                   ylab = "Throughput",
+                   ylim = c(12,20),
+                   vertical = T,
+                   main = "Throughput Tier Chart")
+        
+        grid()
+        
+        for (i in 1:6){
+                lines(x = rep(i,2),
+                      lwd=3,
+                      col = "#666666",
+                      y = c(max(ss.data.pc$pc.volume[ss.data.pc$pc.batch==i]),
+                            min(ss.data.pc$pc.volume[ss.data.pc$pc.batch==i])))
+        }
+        abline(h=16, lwd=2)
+        
+        
+}
